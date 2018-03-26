@@ -10,14 +10,13 @@ api:
   - 3.0.0-ALPHA10
 
 main: Taylcd\ReportUI\ReportUI
-depend: ["FormAPI"]
 
 commands:
   report:
-    description: Report a player
+    description: Пожаловаться на игрока
     permission: report.use
   reportadmin:
-    description: Open Report Panel
+    description: Открыть Админ панель
     permission: report.admin
 
 permissions:
