@@ -59,11 +59,8 @@ class ReportUI extends PluginBase{
     }
 
     public function onEnable(){
-        $this->FormAPI = $this->getServer()->getPluginManager()->getPlugin("FormAPI");
-        if(!$this->FormAPI or $this->FormAPI->isDisabled()){
-            $this->getLogger()->warning('Dependency FormAPI not found, disabling...');
-            $this->getPluginLoader()->disablePlugin($this);
-        }
+        $this->FormAPI = new \jojoe77777\FormAPI\FormAPI();  
+        
         $this->getServer()->getPluginManager()->registerEvents(new Listener($this), $this);
         $this->getServer()->getScheduler()->scheduleDelayedRepeatingTask(new SaveTask($this), $this->getConfig()->get('save-period', 600) * 20, $this->getConfig()->get('save-period', 600) * 20);
         $this->getServer()->getLogger()->info(TextFormat::AQUA . 'ReportUI enabled. ' . TextFormat::GRAY . 'Made by Taylcd with ' . TextFormat::RED . "\xe2\x9d\xa4");
